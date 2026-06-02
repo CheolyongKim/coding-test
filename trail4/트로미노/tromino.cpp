@@ -5,8 +5,8 @@ using namespace std;
 // def
 priority_queue<int> pq;
 int N, M;
-// 동, 서, 남, 북
-int dy[4] = { 0,0,1,-1 }, dx[4] = { 1,-1,0,0 };
+// 북, 동, 남, 서
+int dy[4] = { -1,0,1,0 }, dx[4] = { 0,1,0,-1 };
 int A[200][200];
 
 bool isOOB(int y, int x) {
