@@ -17,7 +17,7 @@ void insertLshapedSums(int i, int j) {
     for (int dir = 0; dir < 4; dir++) {
         // out of bound check
         int y0 = i + dy[dir], x0 = j + dx[dir];
-        int y1 = i + dy[(dir + 2) % 4], x1 = j + dx[(dir + 2) % 4];
+        int y1 = i + dy[(dir + 1) % 4], x1 = j + dx[(dir + 1) % 4];
         if (isOOB(y0, x0) || isOOB(y1, x1)) continue;
 
         // then insert
