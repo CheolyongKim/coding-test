@@ -26,6 +26,7 @@ int main() {
             }
         }
     }
+    if (board[R - 1][C - 1] != (startW ? 'B' : 'W')) answer = 0;
 
     cout << answer;
 
