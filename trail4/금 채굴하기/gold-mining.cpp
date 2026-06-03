@@ -70,6 +70,7 @@ int main() {
     }
 
     // output
+    if (pq.empty()) pq.push(0);
     cout << pq.top();
 
     return 0;
