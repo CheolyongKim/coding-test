@@ -20,6 +20,17 @@ N=5 -> 2*(2,3,4),
     -> 2*(2)*3, ...
 */
 
+// 반례
+/*
+0 0 0 0 0 0
+1 0 0 0 0 0
+0 0 0 0 0 1
+0 0 0 0 0 0
+0 0 0 0 0 0
+0 0 0 0 0 0
+양 끝점을 이렇게 잡으면 직사각형이 안잡히는데도 isCorrectShape = true여서 calculateSum에서 OOB 나버림
+*/
+
 // def
 priority_queue<int> pq;
 int n;
@@ -30,24 +41,31 @@ bool isCorrectShape(int wi, int wj, int ei, int ej){
     if ((wi-wj)==(ei-ej) || (wi+wj)==(ei+ej)) return false;
     return true;
 }
+bool isOOB(int i, int j){
+    return i<0||i>=n||j<0||j>=n;
+}
 int calculateSum(int wi, int wj, int ei, int ej) {
     int sum = 0;
     int i=wi, j=wj;
     // west->north
     while ((i-j)!=(ei-ej)){
         sum += grid[i--][j++];
+        if (isOOB(i,j)) return 0;
     }
     // north->east
     while (i!=ei || j!=ej) {
         sum += grid[i++][j++];
+        if (isOOB(i, j)) return 0;
     }
     // east->south
     while ((i-j) != (wi-wj)) {
         sum += grid[i++][j--];
+        if (isOOB(i, j)) return 0;
     }
     // south->west
     while (i!=wi || j!=wj) {
         sum += grid[i--][j--];
+        if (isOOB(i, j)) return 0;
     }      
     return sum;
 }
