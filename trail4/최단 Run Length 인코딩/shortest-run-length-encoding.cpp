@@ -36,7 +36,7 @@ void process(){
     bool flag = true;
     for (int i=1; i<A.length(); i++)
         if (A[i]!=A[i-1]) flag = false;
-    if (flag){
+    if (flag && A.length()==10){
         minimum = 3;
         return;
     }
