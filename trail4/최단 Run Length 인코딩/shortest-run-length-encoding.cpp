@@ -30,7 +30,7 @@ void input(){
 }
 
 void process(){
-    minimum = A.length();
+    minimum = A.length()+1;
 
     // x*10
     bool flag = true;
