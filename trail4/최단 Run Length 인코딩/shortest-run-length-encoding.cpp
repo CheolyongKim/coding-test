@@ -30,7 +30,7 @@ void input(){
 }
 
 void process(){
-    minimum = 11;
+    minimum = 20;
 
     // x*10
     bool flag = true;
